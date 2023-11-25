@@ -11,7 +11,7 @@ import {
   OriginMiddleware,
 } from './framework';
 import helmet from 'helmet';
-import * as compression from 'compression';
+import compression from 'compression';
 import * as useragent from 'express-useragent';
 import configuration from './app.config';
 

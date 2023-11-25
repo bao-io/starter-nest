@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger } from '@nestjs/common';
 import { HttpExceptionFilter } from './framework';
-console.log(process.env.TEST);
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);
@@ -14,5 +13,8 @@ const bootstrap = async () => {
 };
 
 bootstrap().then((port) => {
-  Logger.log(`Application running on port: ${port}`, 'MainApplication');
+  Logger.log(
+    `Application running on http://localhost:${port}`,
+    'MainApplication',
+  );
 });
