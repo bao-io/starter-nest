@@ -1,20 +1,16 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { Logger } from '@nestjs/common';
-import { HttpExceptionFilter } from './framework';
+import { NestFactory } from '@nestjs/core'
+import { Logger } from '@nestjs/common'
+import { AppModule } from './app.module'
 
-const bootstrap = async () => {
-  const app = await NestFactory.create(AppModule);
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
   return app
-    .setGlobalPrefix(AppModule.apiPrefix)
-    .useGlobalFilters(new HttpExceptionFilter())
-    .listen(AppModule.port)
-    .then(() => AppModule.port);
-};
+    .listen(9000)
+}
 
-bootstrap().then((port) => {
+bootstrap().then(() => {
   Logger.log(
-    `Application running on http://localhost:${port}`,
+    `Application running on http://localhost:9000`,
     'MainApplication',
-  );
-});
+  )
+})
