@@ -1,9 +1,12 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Inject } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 
 @Controller()
 export class AppController {
+  @Inject() configService: ConfigService
+
   @Get()
-  hello() {
-    return 'hello world'
+  config() {
+    return this.configService.get('app')
   }
 }
